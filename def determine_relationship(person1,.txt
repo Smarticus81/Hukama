@@ -1,0 +1,38 @@
+def determine_relationship(table, name1, name2):
+    # Check if both names are present in the table
+    if name1 not in table or name2 not in table:
+        return f"One or both names not found in the table."
+
+    # Determine the relationship based on the table
+    relationship = table[name1].get(name2)
+
+    if relationship:
+        return f"{name1} and {name2} are {relationship}."
+    else:
+        return f"No direct relationship found between {name1} and {name2}."
+
+family_tree_table = {
+    "Evelyn": {"Evelyn": "Same", "Sydney": "Mukadzi ne murume", "Bertha": "Mwanasikana", "Ida": "Mwanasikana", "Belinda": "Mwanasikana", "Terence": "Mwanakomana", "Mumu": "Muzukuru"},
+    "Sydney": {"Evelyn": "Mukadzi ne murume", "Sydney": "Same", "Bertha": "Mwanasikana", "Ida": "Mwanasikana", "Belinda": "Mwanasikana", "Terence": "Mwanakomana", "Mumu": "Muzukuru"},
+    "Bertha": {"Evelyn": "Amai", "Sydney": "Baba", "Bertha": "Same", "Ida": "Mukoma", "Belinda": "Mukoma", "Terence": "Handzvadzi", "Mumu": "Muzukuru"},
+    "Ida": {"Evelyn": "Amai", "Sydney": "Baba", "Bertha": "Muningina", "Ida": "Same", "Belinda": "Muningina", "Terence": "Handzvadzi", "Mumu": "Muzukuru"},
+    "Belinda": {"Evelyn": "Amai", "Sydney": "Baba", "Bertha": "Mukoma", "Ida": "Mukoma", "Belinda": "Same", "Terence": "Handzvadzi", "Mumu": "Muzukuru"},
+    "Terence": {"Evelyn": "Amai", "Sydney": "Baba", "Bertha": "Handzvadzi", "Ida": "Handzvadzi", "Belinda": "Handzvadzi", "Terence": "Same", "Mumu": "Mwanakomana"},
+    "Mumu": {"Evelyn": "Gogo", "Sydney": "Sekuru", "Bertha": "Tete", "Ida": "Tete", "Belinda": "Tete", "Terence": "Baba", "Mumu": "Same"}
+}
+
+# Example usage of the family tree table
+person1 = input("Enter the first person's name: ")
+person2 = input("Enter the second person's name: ")
+
+relationship = family_tree_table.get(person1, {}).get(person2)
+
+if relationship:
+    print(f"Kuna {person1} na {person2}, {person2}: {relationship}")
+else:
+    print(f"Hukama wa {person1} na {person2} ndewe kubhaizira")
+
+
+
+
+
